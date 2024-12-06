@@ -1,0 +1,29 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+
+    <table class="table">
+
+        <tr>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>SUBJECT</th>
+            <th>MESSAGE</th>
+        </tr>
+
+        {% for x in contact %}
+
+            <tr>
+                <td>{{ x.name }}</td>
+                <td>{{ x.email }}</td>
+                <td>{{ x.subject }}</td>
+                <td>{{ x.message }}</td>
+            </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+{% endblock %}

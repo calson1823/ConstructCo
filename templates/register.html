@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstructCo Register</title>
+
+    {% load static %}
+
+    <link href="{% static 'assets/img/testimonials/favicon.png' %}" rel="icon">
+
+     <style>
+         *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            justify-content: center;
+            padding: 0 10px;
+            background-image: url("{% static 'assets/img/bgg.jpeg' %}") ;
+            background-position: center;
+            background-size: cover;
+
+        }
+
+        body::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 415px;
+            border-radius: 9px;
+            padding: 32px;
+            text-align: center;
+            border: 2px solid rgb(188, 185, 185);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(9px);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 19px;
+            color: white;
+        }
+
+        .input-space {
+            position: relative;
+            border-bottom: 3px solid white;
+            margin: 14px 0;
+        }
+
+        .input-space input {
+            width: 100%;
+            height: 41px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: white;
+        }
+
+        .input-space label {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform-origin: translateY(-50%);
+            color: white;
+            font-size: 16px;
+            pointer-events: none;
+            transform: 0.15% ease;
+        }
+
+        .input-space input:focus-label
+        .input-space input: valid-label{
+            font-size: 0.9rem;
+            top: 10px;
+            translate: translateY(-120%);
+        }
+
+        .remember-forgot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 26px 0 36px 0;
+            color: white;
+        }
+
+        #rememberme {
+            accent-color: white;
+        }
+
+        .remember-forgot label p {
+            margin-left: 7px;
+        }
+
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background: #100000;
+            color: #ffffff;
+            font-weight: 600;
+            border: none;
+            padding: 11px 19px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            transition: o.3s ease;
+        }
+
+        button:hover {
+            color: #ffffff;
+            border-color: #fff;
+            background: rgb(32, 30, 30);
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 29px;
+            color: #fff;
+        }
+     </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" >
+            {% csrf_token %}
+
+            <h2>Register</h2>
+            <div class="input-space">
+                <input type="text" name="name" value="{{ member.name }}" placeholder="Enter Your Name" required>
+                <label for="enter your name"></label>
+            </div>
+            <div class="input-space">
+                <input type="email" name="email" value="{{ member.email }}" placeholder="Enter Your Email" required>
+                <label for="enter your email"></label>
+            </div>
+            <div class="input-space">
+                <input type="password" name="password" value="{{ member.password }}" placeholder="Enter Your Password" required>
+                <label for="enter your password"></label>
+            </div>
+            <div class="remember-forgot">
+                <label for="rememberme">
+                    <input type="checkbox" id="rememberme">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">forgot password</a>
+            </div>
+            <button type="submit">Register</button>
+            <div class="login">
+                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
