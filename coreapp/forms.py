@@ -1,10 +1,10 @@
 from django import forms
-from coreapp.models import Contact, Quote, Comment, BlogPost
+from coreapp.models import Contact, QuoteRequest, Comment, BlogPost
 
 
-class QuoteForm(forms.ModelForm):
+class QuoteRequestForm(forms.ModelForm):
     class Meta:
-        model = Quote
+        model = QuoteRequest
         fields = '__all__'
 
 class ContactForm(forms.ModelForm):

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Quotes</title>
+  <title>Get a free Quote</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -37,6 +37,16 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+    <style>
+
+        #div1{
+            margin-right: 200px;
+            margin-left: 200px;
+        }
+
+    </style>
+
 </head>
 
 <body class="starter-page-page">
@@ -90,61 +100,80 @@
       <div class="container" data-aos="fade-up">
 
           <!-- Get Started Section -->
-    <section id="get-started" class="get-started section">
+        <section id="get-started" class="get-started section">
 
-      <div class="container">
+          <div class="container">
 
-        <div class="row justify-content-between gy-4">
+            <div class="row justify-content-between gy-4">
 
-          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-            <div class="content">
-              <h3>Why Choose ConstructCo?</h3>
-              <p>We pride ourselves on delivering top-notch construction services that exceed client expectations. Our team of experts is dedicated to ensuring every project is completed with the highest standards of quality and efficiency.</p>
-              <p>From residential to commercial projects, we handle it all with professionalism and attention to detail. Let us bring your vision to life.</p>
+              <div id="div1" class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                <div class="content">
+                  <h3>Why Choose ConstructCo?</h3>
+                  <p>We pride ourselves on delivering top-notch construction services that exceed client expectations. Our team of experts is dedicated to ensuring every project is completed with the highest standards of quality and efficiency.</p>
+                  <p>From residential to commercial projects, we handle it all with professionalism and attention to detail. Let us bring your vision to life.</p>
+                </div>
+              </div>
+
+              <div class="form-container">
+                  <div id="h1">
+                    <h1>Quote Request Form</h1>
+                  </div>
+                  <br><br>
+                  <form method="post">
+                      {% csrf_token %}
+                          <div class="row gy-4">
+
+                            <div class="col-md-6">
+                              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="tel" class="form-control" name="phone" placeholder="Your Phone Number" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="text" class="form-control" name="type" placeholder="Project Type" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="text" class="form-control" name="size" placeholder="Project Size" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="text" class="form-control" name="location" placeholder="Project Location" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="text" class="form-control" name="contact" placeholder="Preferred Contact Method" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="project-details" rows="6" placeholder="Specific Project Details" required=""></textarea>
+                            </div>
+
+                            <div class="col-md-12">
+                              <textarea class="form-control" name="preferred-materials" rows="6" placeholder="Preferred Materials" required=""></textarea>
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="text" class="form-control" name="budget-constraints" placeholder="Budget Constraints" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                              <input type="text" class="form-control" name="timeline-preferences" placeholder="Timeline Preferences" required="">
+                            </div>
+
+                      <button type="submit" class="btn btn-warning">Submit Request</button>
+                  </form>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-5" data-aos="zoom-out" data-aos-delay="200">
-            <form method="POST">
-                {% csrf_token %}
-
-              <h3>Get a Quote</h3>
-              <p>Contact us today to receive a personalized quote for your construction project. Our team is ready to assist you with all your construction needs.</p>
-              <div class="row gy-3">
-
-                <div class="col-12">
-                  <input type="text" name="name" class="form-control" placeholder="Name" required>
-                </div>
-
-                <div class="col-12">
-                  <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-
-                <div class="col-12">
-                  <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                </div>
-
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
-
-                  <button type="submit" class="btn btn-warning">Get a Quote</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Quote Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Get Started Section -->
+        </section><!-- /Get Started Section -->
 
       </div>
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Upload_blog</title>
+  <title>Quote Request Submitted</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -61,7 +61,7 @@
           <li><a href={% url 'blog' %}>Blog</a></li>
           <li><a href="{% url 'blog-details' %}">Blog<br>Details</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
-          <li><a href="{% url 'quote-request' %}">Quote</a></li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -74,35 +74,44 @@
     <!-- Page Title -->
     <div class="page-title dark-background" style="background-image: {% static 'assets/img/page-title-bg.jpg' %};">
       <div class="container position-relative">
-        <h1>Blogs</h1>
+        <h1>Quote-Request-Success</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="current">Uploads</li>
+            <li class="current">Quotes</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-
+    <!-- Starter Section -->
     <section id="starter-section" class="starter-section section">
 
       <div class="container" data-aos="fade-up">
 
-              <!---Upload image--->
+          <!-- Get Started Section -->
+    <section id="get-started" class="get-started section">
 
-        <form method="post" enctype="multipart/form-data" class="text-center d-block m-auto mb-4">
-            {% csrf_token %}
+      <div class="container">
 
-             <h2>Upload blog</h2>
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-warning">Upload</button>
+        <div class="row justify-content-between gy-4">
 
-        </form>
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <div class="content">
+              <h3>Thank You!</h3>
+              <p>Your quote request has been submitted successfully.</p>
+              <p>We will contact you soon.</p>
+            </div>
+          </div>
+        </div>
 
       </div>
 
-    </section>
+    </section><!-- /Get Started Section -->
+
+      </div>
+
+    </section><!-- /Starter Section -->
 
   </main>
 

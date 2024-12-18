@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from coreapp.forms import QuoteForm, ContactForm, CommentForm, BlogPostForm
-from coreapp.models import Member, Contact, Comment, Quote, BlogPost
+from coreapp.forms import QuoteRequestForm, ContactForm, CommentForm, BlogPostForm
+from coreapp.models import Member, Contact, Comment, QuoteRequest, BlogPost
 
 
 # Create your views here.
@@ -94,19 +94,18 @@ def register(request):
 def login(request):
     return render(request, 'login.html')
 
-def quote(request):
-    if request.method == "POST":
-        myquote=Quote(
-            name=request.POST['name'],
-            email=request.POST['email'],
-            phone=request.POST['phone'],
-            message=request.POST['message'],
-        )
-        myquote.save()
-        return redirect('/quote')
-
+def quote_request_view(request):
+    if request.method == 'POST':
+        form = QuoteRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('quote-success')
     else:
-        return render(request, 'quote.html')
+        form = QuoteRequestForm()
+    return render(request, 'quote-request.html', {'form': form})
+
+def quote_success_view(request):
+    return render(request, 'quote-success.html')
 
 def upload_blog(request):
     if request.method == 'POST':
